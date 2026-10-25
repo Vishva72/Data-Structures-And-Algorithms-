@@ -135,45 +135,96 @@ public class Arrays1 {
 //       return union;
 //
 //    }
-    public static ArrayList<Integer> union(int[]arr1, int[]arr2){
+//    public static ArrayList<Integer> union(int[]arr1, int[]arr2){
+//        int i =0;
+//        int j =0;
+//        ArrayList<Integer>union = new ArrayList<>();
+//        while(i <arr1.length && j<arr2.length){
+//
+//            if(arr1[i] <= arr2[j]){
+//                if(union.isEmpty() || union.getLast()!=arr1[i]){
+//                    union.add(arr1[i]);
+//                }
+//                i++;
+//            }else {
+//                if(union.isEmpty() || union.getLast()!=arr2[j]){
+//                    union.add(arr2[j]);
+//                }
+//                j++;
+//            }
+//
+//        }
+//        while(i < arr1.length){
+//            if(union.isEmpty() || union.getLast()!=arr1[i]){
+//                union.add(arr1[i]);
+//            }
+//            i++;
+//        }
+//        while(j <arr2.length){
+//            if(union.isEmpty() || union.getLast()!=arr2[j]){
+//                union.add(arr2[j]);
+//            }
+//            j++;
+//        }
+//        return union;
+//    }
+//
+//    public static ArrayList<Integer>intersection(int[]a,int[]b){
+//        int i =0;
+//        int j =0;
+//        ArrayList<Integer>intersection = new ArrayList<>();
+//        while(i<a.length && j<b.length){
+//            if(a[i] < b[j]){
+//                i++;
+//            }else if(b[j] < a[i]){
+//                j++;
+//            }else{
+//                intersection.add(a[i]);
+//                i++;
+//                j++;
+//            }
+//        }
+//        return intersection;
+//    }
+
+    public static ArrayList<Integer>union(int[]a,int[]b){
         int i =0;
         int j =0;
         ArrayList<Integer>union = new ArrayList<>();
-        while(i <arr1.length && j<arr2.length){
-
-            if(arr1[i] <= arr2[j]){
-                if(union.isEmpty() || union.getLast()!=arr1[i]){
-                    union.add(arr1[i]);
+        while(i<a.length && j<b.length){
+            if(a[i] <= b[j]){
+                if(union.isEmpty() || union.getLast() != a[i]){
+                    union.add(a[i]);
                 }
                 i++;
-            }else {
-                if(union.isEmpty() || union.getLast()!=arr2[j]){
-                    union.add(arr2[j]);
+            }else{
+                if(union.isEmpty() || union.getLast() == b[j]){
+                    union.add(b[j]);
                 }
                 j++;
             }
-
         }
-        while(i < arr1.length){
-            if(union.isEmpty() || union.getLast()!=arr1[i]){
-                union.add(arr1[i]);
+        while(i<a.length){
+            if(union.isEmpty() || union.getLast() != a[i]){
+                union.add(a[i]);
             }
             i++;
         }
-        while(j <arr2.length){
-            if(union.isEmpty() || union.getLast()!=arr2[j]){
-                union.add(arr2[j]);
+
+        while(j<b.length){
+            if(union.isEmpty() || union.getLast() != b[j]){
+                union.add(b[j]);
             }
             j++;
         }
         return union;
     }
 
-    public static ArrayList<Integer>intersection(int[]a,int[]b){
-        int i =0;
-        int j =0;
+    public static ArrayList<Integer> getIntersection(int[]a,int[]b){
         ArrayList<Integer>intersection = new ArrayList<>();
-        while(i<a.length && j<b.length){
+        int i = 0;
+        int j = 0;
+        while(i < a.length || j<b.length){
             if(a[i] < b[j]){
                 i++;
             }else if(b[j] < a[i]){
